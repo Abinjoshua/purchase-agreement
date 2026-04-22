@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Define a view to extend POS configuration settings with delivery options -->
+    <record id="view_purchase_configuration_form" model="ir.ui.view">
+        <field name="name">purchase.config.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[@id='three_way_matching']"
+                  position="after">
+               <setting id="purchase_agreements">
+                   <field name="require_attachment"/>
+               </setting>
+           </xpath>
+        </field>
+    </record>
+</odoo>
